@@ -12,3 +12,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore code coverage results files
+/coverage

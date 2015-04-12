@@ -13,6 +13,9 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+gem 'activeadmin', '~> 1.0.0.pre1'
+gem 'devise'
+
 gem 'pg'
 
 group :development, :test do

@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
   validates_presence_of :trigram
   validates_uniqueness_of :trigram, case_sensitive: false
 
+  has_many :moods
+
   after_create :set_token, :uppercase_trigram
 
   private

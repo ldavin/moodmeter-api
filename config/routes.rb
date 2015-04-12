@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
+  # Active Admin
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
+  # API Routes
+  namespace :api do
+    namespace :v1 do
+      post 'login' => 'login#create'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

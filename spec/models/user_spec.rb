@@ -14,4 +14,11 @@ RSpec.describe User, type: :model do
     its(:token) { should_not be_blank }
   end
 
+  describe '#uppercase_trigram' do
+    let(:user) { build :user, trigram: 'lda' }
+    subject { user }
+    before { user.save! }
+    its(:trigram) { should eq 'LDA' }
+  end
+
 end

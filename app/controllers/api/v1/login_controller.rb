@@ -1,4 +1,4 @@
-class Api::V1::LoginController < ApplicationController
+class Api::V1::LoginController < Api::ApiController
 
   def create
     trigram = params[:id]
@@ -12,7 +12,7 @@ class Api::V1::LoginController < ApplicationController
         @user = User.create! trigram: trigram
       end
 
-
+      render :create, status: :created
     else
       render json: {status: 400, error: '"id" parameter is required'}, status: :bad_request
     end

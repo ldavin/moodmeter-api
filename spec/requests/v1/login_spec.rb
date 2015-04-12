@@ -2,10 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'Login', type: :request do
 
+  let(:header_parameter) { {'X-API-KEY' => ENV['API_ACCESS_CONTROL']} }
+
   context 'with new user' do
     it 'creates a new user and return its token' do
       parameters = {id: 'MOB'}
-      post '/api/v1/login.json', parameters
+      post '/api/v1/login.json', parameters, header_parameter
       expect(response.body).to match /"id":"MOB","token":"\w+"/
     end
   end
@@ -21,7 +23,7 @@ RSpec.describe 'Login', type: :request do
 
     it 'returns its token' do
       parameters = {id: existing_trigram}
-      post '/api/v1/login.json', parameters
+      post '/api/v1/login.json', parameters, header_parameter
       expect(response.body).to match /"id":"#{existing_trigram}","token":"#{existing_token}"/
     end
   end

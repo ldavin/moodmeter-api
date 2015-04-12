@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   # API Routes
   namespace :api do
+
+    get 'status' => 'status#index'
+
     namespace :v1 do
       post 'login' => 'login#create'
     end
